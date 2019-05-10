@@ -1,16 +1,15 @@
 {
-  "name": "react-infinite-scroller",
-  "version": "1.2.4",
-  "description": "Infinite scroll component for React in ES6",
+  "name": "preact-infinite-scroller",
+  "version": "1.0.0",
+  "description": "InfiniteScroll component for Preact in ES6",
   "main": "index.js",
   "jsnext:main": "src/InfiniteScroll.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/CassetteRocks/react-infinite-scroller.git"
+    "url": "https://github.com/ashokvishwakarma/preact-infinite-scroller.git"
   },
   "scripts": {
-    "build":
-      "mkdirp dist && babel src/InfiniteScroll.js --out-file dist/InfiniteScroll.js",
+    "build": "mkdirp dist && babel src/InfiniteScroll.js --out-file dist/InfiniteScroll.js",
     "prepublish": "npm run build",
     "test": "nyc npm run spec",
     "spec": "_mocha -R spec ./test/test_helper.js --recursive test/*_test.js",
@@ -23,17 +22,22 @@
       "git add"
     ]
   },
-  "keywords": ["infinite", "scroll", "react"],
-  "author": "CassetteRocks",
+  "keywords": [
+    "infinite",
+    "scroll",
+    "preact",
+    "preact-infinite-scroll"
+  ],
+  "author": "Ashok Vishwakarma <akvlko@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CassetteRocks/react-infinite-scroller/issues"
+    "url": "https://github.com/ashokvishwakarma/preact-infinite-scroller/issues"
   },
   "dependencies": {
     "prop-types": "^15.5.8"
   },
   "peerDependencies": {
-    "react": "^0.14.9 || ^15.3.0 || ^16.0.0"
+    "preact": "^8.4.2"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
@@ -63,10 +67,8 @@
     "mkdirp": "^0.5.1",
     "mocha": "^3.3.0",
     "nyc": "^10.2.0",
+    "preact": "^8.4.2",
     "prettier": "^1.7.4",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
     "sinon": "^2.1.0",
     "webpack": "^2.5.1"
   }

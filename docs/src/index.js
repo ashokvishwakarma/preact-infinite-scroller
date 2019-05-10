@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { h, Component, render } from 'preact';
 import InfiniteScroll from '../../dist/InfiniteScroll';
 import qwest from 'qwest';
 
@@ -24,29 +23,29 @@ class App extends Component {
         var self = this;
 
         var url = api.baseUrl + '/users/8665091/favorites';
-        if(this.state.nextHref) {
+        if (this.state.nextHref) {
             url = this.state.nextHref;
         }
 
         qwest.get(url, {
-                client_id: api.client_id,
-                linked_partitioning: 1,
-                page_size: 10
-            }, {
+            client_id: api.client_id,
+            linked_partitioning: 1,
+            page_size: 10
+        }, {
                 cache: true
             })
-            .then(function(xhr, resp) {
-                if(resp) {
+            .then(function (xhr, resp) {
+                if (resp) {
                     var tracks = self.state.tracks;
                     resp.collection.map((track) => {
-                        if(track.artwork_url == null) {
+                        if (track.artwork_url == null) {
                             track.artwork_url = track.user.avatar_url;
                         }
 
                         tracks.push(track);
                     });
 
-                    if(resp.next_href) {
+                    if (resp.next_href) {
                         self.setState({
                             tracks: tracks,
                             nextHref: resp.next_href
@@ -90,6 +89,6 @@ class App extends Component {
     }
 };
 
-ReactDOM.render(
+render(
     <App />
-, document.getElementById('root'));
+    , document.getElementById('root'));
